@@ -1,0 +1,81 @@
+@media print {
+  @page {
+    size: auto;
+    margin: 0.2in 0;
+  }
+
+  .parent {
+    overflow: initial !important;
+    -webkit-print-color-adjust: exact;
+    page-break-before: auto;
+    height: fit-content;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+  }
+}
+.parent {
+  padding: 1.5em 2em;
+}
+
+.box-50 {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
+
+.left-0 {
+  left: 0;
+}
+.left-25 {
+  right: 25% !important;
+}
+.m-left-25 {
+  margin-left: 25% !important;
+}
+.scrollable-container {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+.right-25 {
+  right: 25%;
+}
+
+.top-25 {
+  top: 25%;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.text-primary-light {
+  color: #0c4088;
+}
+
+.bg-primary-light {
+  background-color: #0c4088;
+}
+
+.border-primary-light {
+  border-color: #0c4088;
+}
+
+.pdf-bar {
+  height: 2px;
+  width: 100%;
+  top: 845px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-color: red;
+}

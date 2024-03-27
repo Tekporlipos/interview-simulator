@@ -1,0 +1,378 @@
+/*.left-nav {*/
+/*  background-color: #f3f0f0;*/
+/*  padding: 20px;*/
+/*}*/
+
+/*.thread-list {*/
+/*  list-style: none;*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*}*/
+
+/*.thread-item {*/
+/*  margin-bottom: 10px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.thread-item.active {*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.chat-container {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  height: 100%;*/
+/*}*/
+
+/*.chat-header {*/
+/*  text-align: center;*/
+/*  margin-top: 6rem;*/
+/*  margin-bottom: 2rem;*/
+/*}*/
+
+/*.chat-messages {*/
+/*  flex: 1;*/
+/*  overflow-y: auto;*/
+/*  padding: 20px;*/
+/*  -ms-overflow-style: none;*/
+/*  scrollbar-width: none;*/
+/*}*/
+/*.chat-messages::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
+
+/*.chat-messages::-webkit-scrollbar-track {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.chat-messages::-webkit-scrollbar-thumb {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.message {*/
+/*  margin-bottom: 10px;*/
+/*}*/
+
+/*.message-content {*/
+/*  padding: 10px;*/
+/*  border-radius: 10px;*/
+/*}*/
+
+/*.message.incoming {*/
+/*  background-color: #f8f8f8;*/
+/*  align-self: flex-start;*/
+/*}*/
+
+/*.message.outgoing {*/
+/*  background-color: #d6eef8;*/
+/*  align-self: flex-end;*/
+/*}*/
+
+/*.chat-input {*/
+/*  padding: 20px;*/
+/*  background-color: #fff;*/
+/*  border-top: 1px solid #ccc;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  position: sticky;*/
+/*  bottom: 0;*/
+/*}*/
+
+/*.chat-input textarea {*/
+/*  flex: 1;*/
+/*  margin-right: 10px;*/
+/*  resize: vertical;*/
+/*  min-height: 80px;*/
+/*  line-height: 20px;*/
+/*}*/
+
+/*.chat-input button {*/
+/*  flex-shrink: 0;*/
+/*}*/
+
+/*.input-group {*/
+/*  width: 100%;*/
+/*}*/
+
+/*.flex-row {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-items: center;*/
+/*}*/
+
+/*.boarder {*/
+/*  border: solid 1px #333;*/
+/*  border-radius: 5px;*/
+/*  padding: 4px 8px;*/
+/*}*/
+
+/*.a {*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*!* Test Phase Section *!*/
+/*.test-phase {*/
+/*  background-color: #fff;*/
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*  padding: 20px;*/
+/*  margin-bottom: 40px;*/
+/*}*/
+
+/*.test-phase h2 {*/
+/*  color: #333;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*!* About Us Section *!*/
+/*.about-us {*/
+/*  background-color: #fff;*/
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*  padding: 20px;*/
+/*  margin-bottom: 40px;*/
+/*}*/
+
+/*.about-us h2 {*/
+/*  color: #333;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*!* Footer *!*/
+/*footer {*/
+/*  background-color: #333;*/
+/*  color: #fff;*/
+/*  padding: 20px;*/
+/*  text-align: center;*/
+/*}*/
+
+/*.note {*/
+/*  flex-direction: row;*/
+/*  justify-content: stretch;*/
+/*  align-content: stretch;*/
+/*  height: 75vh;*/
+/*}*/
+
+/*.note > div {*/
+/*  overflow-y: scroll;*/
+/*  height: 100%;*/
+/*  -ms-overflow-style: none;*/
+/*  scrollbar-width: none;*/
+/*}*/
+/*.note > div::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
+
+/*.note > div::-webkit-scrollbar-track {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.note > div::-webkit-scrollbar-thumb {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*li > span {*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.myFrame-container {*/
+/*  display: none;*/
+/*  height: 80vh;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*.cookie-banner {*/
+/*  position: fixed;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*  background-color: #333;*/
+/*  color: #fff;*/
+/*  padding: 20px;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*  z-index: 999;*/
+/*  display: none;*/
+/*}*/
+/*p {*/
+/*  font-weight: 500;*/
+/*}*/
+/*.cookie-message {*/
+/*  margin-right: 20px;*/
+/*}*/
+
+/*.cookie-button {*/
+/*  background-color: #fff;*/
+/*  color: #333;*/
+/*  border: none;*/
+/*  padding: 10px 20px;*/
+/*  font-weight: bold;*/
+/*  cursor: pointer;*/
+/*  transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.cookie-button:hover {*/
+/*  background-color: #f7f7f7;*/
+/*}*/
+
+/*.blb {*/
+/*  border-bottom: solid 1px gray;*/
+/*}*/
+
+/*.delete,*/
+/*.save {*/
+/*  display: none;*/
+/*}*/
+/*.current {*/
+/*  border: solid 1px gray;*/
+/*  border-radius: 5px;*/
+/*  padding: 2px;*/
+/*  background: rgba(128, 128, 128, 0.25);*/
+/*}*/
+/*.h-text {*/
+/*  text-overflow: ellipsis;*/
+/*  font-weight: 200;*/
+/*  max-height: 25px;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*h4 {*/
+/*  font-weight: 600;*/
+/*}*/
+/*.fw-2 {*/
+/*  font-weight: 500;*/
+/*}*/
+
+/*.history-list {*/
+/*  height: 70vh;*/
+/*  overflow-y: scroll;*/
+/*}*/
+
+/*.history-list {*/
+/*  height: 70vh;*/
+/*  overflow-y: scroll;*/
+/*  -ms-overflow-style: none;*/
+/*  scrollbar-width: none;*/
+/*}*/
+
+/*.history-list::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
+
+/*.history-list::-webkit-scrollbar-track {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.history-list::-webkit-scrollbar-thumb {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.help-section-container {*/
+/*  display: none;*/
+/*  position: fixed;*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, -50%);*/
+/*  background-color: #fff;*/
+/*  padding: 20px;*/
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+/*.help-section {*/
+/*  height: 80vh;*/
+/*  overflow-y: scroll;*/
+/*  -ms-overflow-style: none;*/
+/*  scrollbar-width: none;*/
+/*}*/
+
+/*.help-section::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
+/*.help-section::-webkit-scrollbar-track {*/
+/*  background-color: transparent;*/
+/*}*/
+/*.help-section::-webkit-scrollbar-thumb {*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.content-head {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  align-content: center;*/
+/*}*/
+
+/*p span {*/
+/*  font-weight: 600;*/
+/*}*/
+/*.head {*/
+/*  font-weight: 700;*/
+/*}*/
+
+/*.help-section h2 {*/
+/*  margin-top: 0;*/
+/*}*/
+
+/*.help-section p {*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.help-me {*/
+/*  position: fixed;*/
+/*  bottom: 10px;*/
+/*  left: 10px;*/
+/*  z-index: 15;*/
+/*}*/
+
+/*.review {*/
+/*  font-weight: 500;*/
+/*}*/
+
+/*.toaster {*/
+/*  position: fixed;*/
+/*  bottom: 10px;*/
+/*  left: 10px;*/
+/*  width: 30%;*/
+/*  background-color: #ff0000;*/
+/*  color: #ffffff;*/
+/*  padding: 10px 20px;*/
+/*  font-weight: 400;*/
+/*  border-radius: 5px;*/
+/*  opacity: 0;*/
+/*  transition: opacity 0.3s ease-in-out;*/
+/*  z-index: 9999;*/
+/*}*/
+
+/*.show-toast {*/
+/*  opacity: 1;*/
+/*}*/
+/*.btn-nb {*/
+/*  border-radius: 0;*/
+/*}*/
+/*!* Styles for mobile devices *!*/
+/*@media (max-width: 767px) {*/
+/*  .test-phase,*/
+/*  .thread-list {*/
+/*    display: none;*/
+/*  }*/
+/*  .chat-messages {*/
+/*    flex: 6;*/
+/*    min-height: 60vh;*/
+/*  }*/
+/*}*/
+
+/*!* Styles for mobile devices *!*/
+/*@media (max-width: 990px) and (min-width: 767px) {*/
+/*  .about-us {*/
+/*    display: none;*/
+/*  }*/
+/*  .chat-container {*/
+/*    display: block;*/
+/*  }*/
+/*  .chat-messages {*/
+/*    flex: 6;*/
+/*    min-height: 70vh;*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 1200px) and (min-width: 990px) {*/
+/*  .test-note {*/
+/*    display: none;*/
+/*  }*/
+/*}*/

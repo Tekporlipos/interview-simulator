@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.w-v100 {
+  width: 100vw;
+}
+
+.hv-60 {
+  height: 60vh;
+}
+.hv-70 {
+  height: 70vh;
+}
+
+.hv-75 {
+  height: 75vh;
+}
+.hv-85 {
+  height: 85vh;
+}
+.a {
+  cursor: pointer;
+}
+.c-container {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.bg-light-dark {
+  background-color: #d9d9d9;
+}
+.bg-dark-c-t-50 {
+  background-color: rgba(169, 169, 169, 0.5) !important;
+}
+.hide-desktop {
+  display: none;
+}
+.fs-8 {
+  font-size: x-small;
+}
+
+.fs-7 {
+  font-size: small;
+}
+
+/* Define classes for each font weight */
+.font-weight-100 {
+  font-weight: 100;
+}
+
+.font-weight-200 {
+  font-weight: 200;
+}
+
+.font-weight-300 {
+  font-weight: 300;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.font-weight-900 {
+  font-weight: 900;
+}
+
+.action:hover {
+  background: rgba(169, 169, 169, 0.5);
+}
+.action {
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+.text-justify {
+  text-align: justify;
+}
+.bars {
+  height: 15px;
+  width: 40px;
+}
+.bg-danger-light {
+  background: rgba(220, 53, 69, 0.15);
+}
+.bg-dark-light {
+  background: rgba(0, 0, 0, 0.5);
+}
+.bars:hover {
+  height: 15px;
+  width: 45px;
+  transition: ease-in-out 0.5s;
+}
+
+.transition-3 {
+  transition: ease-in-out 0.3s;
+}
+
+.auto-resize-textarea {
+  resize: none;
+  outline: none;
+  min-height: 20px;
+  max-height: 400px;
+}
+.c-position-r-b-2 {
+  right: 16px;
+  bottom: 24px;
+}
+.h-v100 {
+  height: 100vh;
+}
+.w-65 {
+  width: 65% !important;
+}
+.logo {
+  display: flex;
+}
+.rounded-100 {
+  border-radius: 100%;
+}
+.text-rounded {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-size: 2.5em;
+}
+
+.c-flex-column-middle {
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder-white::placeholder {
+  color: #9a9898;
+}
+.w-85 {
+  width: 85% !important;
+}
+
+.p-right {
+  padding-right: 2.5em;
+}
+
+.h-v-20 {
+  height: 20vh;
+}
+.h-85 {
+  height: 85% !important;
+}
+.h-95 {
+  height: 95% !important;
+}
+.h-90 {
+  height: 90% !important;
+}
+.s-100 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 40px;
+}
+
+.bg-image {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/geneieaibuilder.appspot.com/o/preview.png?alt=media&token=e0f3bf92-d3a2-427b-aabc-35fb3c02b5dd");
+}
+
+.mic {
+  transition: ease-in-out 0.5s;
+}
+
+.mic:hover {
+  background-color: rgba(220, 53, 69, 0.3);
+}
+/* Style the container with the custom scrollbar */
+.overflow-y-scroll {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #dc3545 #666666;
+  /* Microsoft Edge scrollbar styles */
+  -ms-overflow-style: none; /* Hide the default scrollbar in Edge */
+}
+
+.overflow-y-scroll::-webkit-scrollbar-thumb {
+  background-color: #666666;
+  border-radius: 15px;
+}
+.overflow-y-scroll::-webkit-scrollbar-track {
+  background-color: #333333;
+}
+.overflow-y-scroll::-webkit-scrollbar-corner {
+  background-color: #333333;
+}
+.mic-red {
+  background-color: #dc3545;
+}
+.mic-dark {
+  background-color: rgb(32, 33, 35);
+}
+
+.image-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.border-bottom-dotted {
+  border-bottom: 1px dotted #999;
+}
+
+.input-focus-outline-none:focus,
+.input-focus-outline-none {
+  outline: none;
+  border: none;
+}
+
+.hover-card:hover {
+  background-color: #dc3545;
+}
+@media (max-width: 2000px) {
+  .c-container {
+    margin-right: 30%;
+    margin-left: 30%;
+  }
+}
+
+.h-100vh {
+  height: 100vh;
+  overflow: hidden;
+}
+.h-90vh {
+  height: 90vh;
+  overflow: hidden;
+}
+.h-94vh {
+  height: 94.5vh;
+  overflow: hidden;
+}
+.h-95vh {
+  height: 95vh;
+  overflow: hidden;
+}
+.h-96vh {
+  height: 96vh;
+  overflow: hidden;
+}
+.h-45 {
+  height: 45vh;
+}
+
+.h-60 {
+  height: 60vh;
+}
+.preview {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.input-controller {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.hiding {
+  overflow: hidden;
+}
+.cards-hover {
+  border: solid transparent 2px;
+}
+.cards-hover:hover {
+  border: solid #7d8088 2px;
+  transition: ease-in-out 0.3s;
+}
+
+.click-border {
+  border: solid #7d8088 2px;
+  transition: ease-in-out 0.3s;
+}
+
+.h-200px {
+  min-height: 120px;
+}
+
+.h-70px {
+  min-height: 100px;
+}
+
+.scroll-bar-hide {
+  overflow: hidden; /* Hide the scrollbar */
+  scrollbar-width: none; /* Hide scrollbar on Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+}
+.scroll-bar-hide::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar width */
+  height: 0; /* Hide scrollbar height */
+}
+.line-1 {
+  max-lines: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+}
+.line-2 {
+  max-lines: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.line-3 {
+  max-lines: 3;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+.line-4 {
+  max-lines: 4;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}
+
+.line-5 {
+  max-lines: 5;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+}
+
+@media (max-width: 768px) {
+  .h-95vh,
+  .h-100vh {
+    height: auto;
+  }
+  .w-65 {
+    width: 100% !important;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .hide-desktop {
+    display: block;
+  }
+  .border-top-sm {
+    border-top: solid darkgray 1px;
+  }
+  .frame {
+    height: 500px !important;
+  }
+  .avatar {
+    height: 200px;
+    width: 200px !important;
+  }
+}

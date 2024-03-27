@@ -1,0 +1,38 @@
+.loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 50;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.loading-content {
+  text-align: center;
+  color: #f6eeee;
+}
+.q-card {
+  min-height: 160px;
+}
+
+.alpha-5 {
+  opacity: 0.5;
+}
+
+.left-chat {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.right-chat {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}

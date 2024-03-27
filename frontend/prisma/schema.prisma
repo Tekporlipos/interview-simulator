@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model email_message {
+  id            String         @id @default(uuid()) @db.VarChar(36)
+  date          DateTime       @db.Timestamp(6)
+  description   String?        @db.VarChar(2000)
+  full_name     String         @db.VarChar(255)
+  interview_id  String         @db.VarChar(255)
+  position      String         @db.VarChar(255)
+  recipient     String?        @db.VarChar(255)
+  panel_members panel_member[]
+}
+
+model panel_member {
+  id               String         @id @db.VarChar(255)
+  description      String?        @db.VarChar(255)
+  email            String?        @db.VarChar(255)
+  expertise        String?        @db.VarChar(255)
+  name             String         @db.VarChar(255)
+  profile          String?        @db.VarChar(255)
+  email_message_id String?        @default(uuid()) @db.VarChar(36)
+  email_message    email_message? @relation(fields: [email_message_id], references: [id])
+
+  @@map("panel_members")
+}
+
+model user_feedback {
+  id              String    @id @default(uuid()) @db.VarChar(36)
+  created_at      DateTime  @default(now()) @db.Timestamp(6)
+  message         String    @db.VarChar(5000)
+  submission_date DateTime? @default(now()) @db.Timestamp(6)
+  updated_at      DateTime  @default(now()) @updatedAt @db.Timestamp(6)
+  user_id         String?   @default(uuid()) @db.VarChar(36)
+}

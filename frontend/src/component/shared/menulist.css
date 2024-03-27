@@ -1,0 +1,6 @@
+ul:hover,
+.mt-5:hover > ul,
+.ms-5:hover > ul {
+  transition: all ease-in-out 3s;
+  display: flex;
+}

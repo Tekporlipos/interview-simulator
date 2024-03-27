@@ -1,0 +1,105 @@
+.sum-card {
+  border-radius: 15px;
+  position: relative;
+  top: -70px;
+  border: 1px solid #fff;
+  background: #06071b;
+  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+  flex-shrink: 0;
+}
+.w-40 {
+  width: 40%;
+}
+.flex {
+  display: flex;
+}
+.card-icon {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+}
+.lamp {
+  border-radius: 200px;
+  background: #dc3545;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  filter: blur(219px);
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 999;
+}
+@supports (-moz-appearance: none) {
+  .lamp {
+    filter: blur(219px);
+  }
+}
+.lamp-position {
+  left: -2%;
+  bottom: -200px;
+  width: 300px;
+  height: 300px;
+}
+
+.lamp-position-2 {
+  left: -8%;
+  bottom: -1200px;
+}
+.lamp-position-3 {
+  left: 90%;
+  bottom: -2300px;
+  width: 350px;
+  height: 350px;
+}
+
+.lamp-position-4 {
+  left: 90%;
+  bottom: -3400px;
+  width: 350px;
+  height: 350px;
+}
+.lamp-position-5 {
+  left: -10%;
+  bottom: -4350px;
+}
+.border-r-b-30 {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.border-r-t-30 {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.genie-position {
+  position: absolute;
+}
+
+.border-r-15 {
+  border-radius: 15px;
+}
+.btn-round {
+  border-radius: 70px;
+  border: 1px solid #fff;
+  background: #c50411;
+}
+.border-white {
+  border: solid white 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 2px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.play-controller {
+  position: relative;
+  top: -380px;
+  left: 48%;
+}
+.inline-div {
+  display: inline;
+  overflow-inline: auto;
+}
+.card-height {
+  min-height: 170px;
+}
