@@ -1,6 +1,5 @@
-import OpenAI from 'openai';
-import ChatCompletionMessageParam = OpenAI.ChatCompletionMessageParam;
+import {IInterviewItem} from "../../../lib/helpers/RequestExtractor";
 
 export class CreateChatAiDto {
-  data: ChatCompletionMessageParam[];
+  data: IInterviewItem[];
 }

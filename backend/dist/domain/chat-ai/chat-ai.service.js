@@ -8,18 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChatAiService = void 0;
 const common_1 = require("@nestjs/common");
-const openai_1 = require("openai");
+const generative_ai_1 = require("@google/generative-ai");
+const functions_1 = require("../../lib/helpers/functions");
 let ChatAiService = exports.ChatAiService = class ChatAiService {
     constructor() {
-        this.openai = new openai_1.default();
+        this.genAI = new generative_ai_1.GoogleGenerativeAI(process.env.GOOGLEAI_API_KEY);
     }
     async create(body, client) {
-        const completion = await this.openai.chat.completions.create({
-            messages: body,
-            model: 'gpt-3.5-turbo',
+        const model = this.genAI.getGenerativeModel({
+            model: process.env.GOOGLEAI_API_MODEL,
         });
-        client.emit('chatAI', completion.choices[0]);
-        return completion.choices[0];
+        const currentMessage = body.pop();
+        const chat = model.startChat({
+            history: (0, functions_1.mapInterviewData)(body),
+            generationConfig: {
+                maxOutputTokens: 100,
+            },
+        });
+        const result = await chat.sendMessage(currentMessage.content);
+        const text = { message: { content: result?.response?.text(), role: 'model' } };
+        client.emit('chatAI', text);
+        return text;
     }
 };
 exports.ChatAiService = ChatAiService = __decorate([

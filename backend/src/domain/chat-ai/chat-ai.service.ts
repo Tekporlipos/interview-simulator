@@ -1,18 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { Socket } from 'socket.io';
-import OpenAI from 'openai';
-import { Chat } from 'openai/resources';
-import ChatCompletionMessageParam = Chat.ChatCompletionMessageParam;
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import {AssistantMessage, IInterviewItem} from "../../lib/helpers/RequestExtractor";
+import {mapInterviewData} from "../../lib/helpers/functions";
 
 @Injectable()
 export class ChatAiService {
-  openai: OpenAI = new OpenAI();
-  async create(body: ChatCompletionMessageParam[], client: Socket) {
-    const completion = await this.openai.chat.completions.create({
-      messages: body,
-      model: 'gpt-3.5-turbo',
+  genAI:GoogleGenerativeAI = new GoogleGenerativeAI(process.env.GOOGLEAI_API_KEY);
+  async create(body: IInterviewItem[], client: Socket):Promise<AssistantMessage> {
+    const model = this.genAI.getGenerativeModel({
+      model: process.env.GOOGLEAI_API_MODEL,
     });
-    client.emit('chatAI', completion.choices[0]);
-    return completion.choices[0];
+    const currentMessage:IInterviewItem = body.pop()
+    const chat = model.startChat({
+      history:mapInterviewData(body),
+      generationConfig: {
+        maxOutputTokens: 100,
+      },
+    });
+    const result = await chat.sendMessage(currentMessage.content);
+    const text:AssistantMessage ={message:{content: result?.response?.text(),role:'model'}};
+    client.emit('chatAI', text);
+    return text;
   }
 }
