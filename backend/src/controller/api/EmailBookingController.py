@@ -12,10 +12,10 @@ bookService = EmailBookingService()
 
 
 @app.route('/api/v1/send-email', methods=[HttpMethod.POST])
-def create():
+def create_booking():
     return bookService.create(db, EmailMessage, PanelMember, request.json, json, app.logger)
 
 
 @app.route('/api/v1/send-email/<note_id>', methods=[HttpMethod.GET])
-def get_notes_by_id(note_id):
-    return bookService.get_notes_by_id(db, EmailMessage, note_id, app.logger)
+def get_booking_by_id(note_id):
+    return bookService.get_booking_by_id(db, EmailMessage, note_id, app.logger)

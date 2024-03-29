@@ -16,3 +16,13 @@ class UserFeedback(db.Model):
     def __repr__(self):
         return f"<UserFeedback(id={self.id}, message={self.message}, submission_date={self.submission_date}, " \
                f"user_id={self.user_id})>"
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'created_at': self.created_at.isoformat(),
+            'message': self.message,
+            'submission_date': self.submission_date.isoformat(),
+            'updated_at': self.updated_at.isoformat(),
+            'user_id': self.user_id
+        }

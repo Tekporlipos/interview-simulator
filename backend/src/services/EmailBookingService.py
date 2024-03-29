@@ -15,6 +15,19 @@ class EmailBookingService:
             cls._instance = super(EmailBookingService, cls).__new__(cls)
         return cls._instance
 
+    @staticmethod
+    def get_booking_by_id(db, email_message, book_id, logger):
+        try:
+            email_message = email_message.query.filter_by(id=book_id).first()
+
+            if email_message:
+                return success_response("Mock interview booked successfully", email_message.to_dict(),
+                                        status_code=200, logger=logger, logger_type="info")
+            else:
+                return error_response("No interview section booked with id "+book_id, status_code=500, logger=logger, logger_type="error")
+        except Exception as e:
+            return error_response(str(e), status_code=500, logger=logger, logger_type="error")
+
     def create(self, db, email_message, panel_member, data, json, logger=None):
         try:
             # Create EmailMessage entity
@@ -68,14 +81,13 @@ class EmailBookingService:
 
             # Prepare email content
             subject = f'Mock Interview Scheduling with GenieAIBuilder for the role of {email_message.position}'
-            link = app_url+"/interview/"+email_message.id
+            link = app_url + "/interview/" + email_message.id
             html_content = self.get_email_content(email_message, link)
 
             # Send email asynchronously
             send_email(subject, mail_username, [email_message.recipient], html_content)
 
         except Exception as e:
-            print(e)
             raise e
 
     def get_email_content(self, email_message, app_url):
