@@ -1,0 +1,54 @@
+2024-03-29 13:12:01,441 [ERROR] 'date' 404
+2024-03-29 13:13:05,447 [ERROR] 'date' 500
+2024-03-29 13:13:42,491 [ERROR] 'date' 500
+2024-03-29 13:16:15,994 [ERROR] When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 404
+2024-03-29 13:20:21,642 [ERROR] 'date' 500
+2024-03-29 13:20:44,007 [ERROR] 'date' 500
+2024-03-29 13:20:49,269 [ERROR] 'date' 500
+2024-03-29 13:21:33,442 [ERROR] 'date' 500
+2024-03-29 13:22:45,382 [ERROR] 'date' 500
+2024-03-29 13:23:02,868 [ERROR] 'date' 500
+2024-03-29 13:23:22,884 [ERROR] 'date' 500
+2024-03-29 13:25:14,551 [ERROR] When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 500
+2024-03-29 13:28:35,461 [ERROR] When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 500
+2024-03-29 13:28:37,542 [ERROR] One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[EmailMessage(email_message)]'. Original exception was: When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 500
+2024-03-29 13:28:38,826 [ERROR] One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[EmailMessage(email_message)]'. Original exception was: When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 500
+2024-03-29 13:28:44,421 [ERROR] One or more mappers failed to initialize - can't proceed with initialization of other mappers. Triggering mapper: 'Mapper[EmailMessage(email_message)]'. Original exception was: When initializing mapper Mapper[EmailMessage(email_message)], expression 'PanelMember' failed to locate a name ('PanelMember'). If this is a class name, consider adding this relationship() to the <class 'src.models.EmailMessage.EmailMessage'> class after both dependent classes have been defined. 500
+2024-03-29 14:28:47,477 [ERROR] Mapper 'Mapper[PanelMember(panel_members)]' has no property 'emailMessage'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called. 500
+2024-03-29 14:31:15,832 [ERROR] Mapper 'Mapper[PanelMember(panel_members)]' has no property 'EmailMessage'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called. 500
+2024-03-29 14:36:02,928 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:37:15,977 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:39:35,287 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:40:09,761 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:40:57,557 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:41:46,575 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:42:14,980 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:43:27,566 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:56:12,721 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:58:07,661 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 14:58:26,914 [ERROR] 'PanelMember' object is not callable 500
+2024-03-29 15:02:48,190 [ERROR] (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "panel_members_pkey"
+DETAIL:  Key (id)=(10421c57-b882-46b7-a7e3-c947bef47a02) already exists.
+
+[SQL: INSERT INTO panel_members (id, description, email, expertise, name, profile, email_message_id, created_at, updated_at) VALUES (%(id)s, %(description)s, %(email)s, %(expertise)s, %(name)s, %(profile)s, %(email_message_id)s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING panel_members.created_at, panel_members.updated_at]
+[parameters: {'id': '10421c57-b882-46b7-a7e3-c947bef47a02', 'description': 'Behavioral Assessor with a background in finance, specializing in financial planning and investment management. Responsible for evaluating behavioral and soft skills.', 'email': '', 'expertise': 'Behavioral Assessor', 'name': 'Vivian Davis', 'profile': '/p4.png', 'email_message_id': '43baaac1-00ee-4ebc-a545-c48bcbb567d9'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) 500
+2024-03-29 15:04:04,734 [ERROR] (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "email_message_pkey"
+DETAIL:  Key (id)=(43baaac1-00ee-4ebc-a545-c48bcbb567d9) already exists.
+
+[SQL: INSERT INTO email_message (id, date, description, full_name, interview_id, position, recipient, created_at, updated_at) VALUES (%(id)s, %(date)s, %(description)s, %(full_name)s, %(interview_id)s, %(position)s, %(recipient)s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING email_message.created_at, email_message.updated_at]
+[parameters: {'id': '43baaac1-00ee-4ebc-a545-c48bcbb567d9', 'date': datetime.datetime(2024, 3, 29, 15, 4, 4, 689473), 'description': '', 'full_name': 'JOHN DZIKUNU', 'interview_id': 'abb7cb7f-27e1-4472-b6cf-5b67c4dd8a69', 'position': 'Full stack developer', 'recipient': 'dzikunujohn36@gmail.com'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) 500
+2024-03-29 15:04:47,371 [ERROR] (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "panel_members_pkey"
+DETAIL:  Key (id)=(01e84c53-5670-49b7-8c73-bf75e8dd4864) already exists.
+
+[SQL: INSERT INTO panel_members (id, description, email, expertise, name, profile, email_message_id, created_at, updated_at) VALUES (%(id)s, %(description)s, %(email)s, %(expertise)s, %(name)s, %(profile)s, %(email_message_id)s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP) RETURNING panel_members.created_at, panel_members.updated_at]
+[parameters: {'id': '01e84c53-5670-49b7-8c73-bf75e8dd4864', 'description': 'Behavioral Assessor with a background in finance, specializing in financial planning and investment management. Responsible for evaluating behavioral and soft skills.', 'email': '', 'expertise': 'Behavioral Assessor', 'name': 'Vivian Davis', 'profile': '/p4.png', 'email_message_id': '9f9bfe36-b482-4a16-ad40-e85db604c183'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) 500
+2024-03-29 15:10:55,104 [ERROR] Object of type EmailMessage is not JSON serializable 500
+2024-03-29 15:20:49,710 [ERROR] can only concatenate list (not "str") to list 500
+2024-03-29 15:21:54,107 [ERROR] can only concatenate list (not "str") to list 500
+2024-03-29 15:22:39,001 [ERROR] can only concatenate list (not "str") to list 500
+2024-03-29 15:24:16,337 [ERROR] can only concatenate list (not "str") to list 500
+2024-03-29 15:24:50,919 [ERROR] can only concatenate list (not "str") to list 500
+2024-03-29 15:25:42,378 [ERROR] can only concatenate list (not "str") to list 500
