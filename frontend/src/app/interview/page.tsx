@@ -81,6 +81,7 @@ export default function Home(props: any): React.JSX.Element {
       setError(true);
     })
     socketRef.current?.on('chatAI', (message) => {
+      console.log(message)
       callback(message,callbackData.current);
     });
   }, []);

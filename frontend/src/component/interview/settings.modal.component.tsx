@@ -78,7 +78,7 @@ export default function SettingsModalComponent(props: any) {
     setModal(false);
     setTimeout(() => {
       props.setPermissions(true);
-      props.setStage(1);
+      props.setStage(2);
     }, 1000);
   }
   const startVideo = () => {

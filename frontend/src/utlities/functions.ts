@@ -604,6 +604,7 @@ export function validateUserName(userName: string): boolean {
   let mySet = new Set(Array.from(userName.trim().split("")));
   return fullNameRegex.test(userName) && mySet.size > 5;
 }
+
 export function validateJobPosition(jobPosition: string): boolean {
   if (jobPosition.trim() === "") {
     return false;
@@ -654,4 +655,34 @@ export function getTimeOfDay(): string {
 
 export function getTimeLeft(size: number, stage: number): number {
   return 33 - stage * (30 / size);
+}
+
+
+export function getData(data:any,maxLent:any, iPanels:any) {
+  return {
+    full_name: data.full_name,
+    position: data.position,
+    recipient: data.recipient,
+    description: JSON.stringify({
+      description: dataClean(
+          data.description
+              .toString()
+              .substring(0, maxLent - data?.questions.toString().length),
+      ),
+      questions: dataClean(data?.questions.toString().substring(0, maxLent)),
+      resume:
+          data?.questions.toString().length < 20
+              ? dataClean(
+                  data?.resume
+                      .toString()
+                      .substring(0, maxLent - data?.description.toString().length),
+              )
+              : null,
+    }),
+    date: new Date(
+        data.date.length > 10 ? data.date.toString() : Date(),
+    ).toISOString(),
+    panel_members: iPanels,
+    interview_id: generateUUID(),
+  };
 }

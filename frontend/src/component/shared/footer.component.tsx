@@ -17,7 +17,7 @@ export default function FooterComponent() {
           <hr className="mt-5" />
           <div className="flex mt-10 justify-between">
             <div className="flex flex-col gap-1 md:flex-row md:gap-10">
-              <div className="font-weight-500 text-xl">TekporConsult</div>
+              <Link href="https://www.genieaibuilder.com" className="font-weight-500 text-xl">GenieAIBuilder</Link>
               <Link href="/policy" className="font-weight-200">
                 Privacy and Terms
               </Link>

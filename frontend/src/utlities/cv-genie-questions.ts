@@ -403,11 +403,11 @@ export function getIntroduction(role: string): Array<any> {
       panel_name: "David Wilson",
       expertise: "Subject Matter Expert (SME)",
       question: `Hi there, I'm David Wilson, your Subject Matter Expert in ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}. My journey has revolved around digital ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )} strategies and brand management. Today, I'm here to assess your ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}-related qualifications.`,
       type: "introduction",
       answer: null,
@@ -415,8 +415,8 @@ export function getIntroduction(role: string): Array<any> {
     {
       panel_name: "John Smith",
       expertise: "Practical Assessor",
-      question: `Hello, I'm John Smith, your Practical Assessor. With a background as a Senior ${role}, I've spent years delving into the intricacies of ${convertNounToAdverb(
-        role,
+      question: `Hello, I'm John Smith, your Practical Assessor. With a background as a Senior ${role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, "")}, I've spent years delving into the intricacies of ${convertNounToAdverb(
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}. Today, I'll be evaluating your practical skills and proficiency.`,
       type: "introduction",
       answer: null,
@@ -425,7 +425,7 @@ export function getIntroduction(role: string): Array<any> {
       panel_name: "Vivian Davis",
       expertise: "Behavioral Assessor",
       question: `Pleasure to meet you! I'm Vivian Davis, your Behavioral Assessor. My background in ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )} equips me to evaluate behavioral and soft skills.`,
       type: "introduction",
       answer: null,
@@ -481,7 +481,7 @@ export function interviewPrompt(
   const question = json.questions;
   switch (index) {
     case 0:
-      return `What ever you do make sure your response is in this format, JSON code [{"panel_name": "","expertise": "","question": "","type": "question"}]. Let's simulate a mock interview for the position of ${data?.position}. The candidate has just introduced themselves, mentioning: ${data?.introduction} ${
+      return `What ever you do make sure your response is in this JSON format, [{"panel_name": "","expertise": "","question": "","type": "question"}]. Let's simulate a mock interview for the position of ${data?.position}. The candidate has just introduced themselves, mentioning: ${data?.introduction} ${
         resume?.length > 20 ? ", and resume (CV): " + resume : ""
       }. Please generate a relevant follow-up question and assign it to the panel members make it user friendly start with nice gesture: ${data?.panels} based on their respective fields and the job requirements to assess the candidate's suitability. Job requirements: ${requirement}.`;
     case 1:

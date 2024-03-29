@@ -9,7 +9,7 @@ import { dataClean, postWebClient } from "@/utlities/builder-script";
 import ToastComponent from "@/component/shared/toast/toast.component";
 import {
   clearBookLocalStorage,
-  generateUUID,
+  generateUUID, getData,
   getTodayDDMMYY,
   validateJobPosition,
   validateUserName,
@@ -132,32 +132,7 @@ export default function Home(props: any) {
         };
       });
     const maxLent: number = 1900;
-    const payload = {
-      full_name: data.full_name,
-      position: data.position,
-      recipient: data.recipient,
-      description: JSON.stringify({
-        description: dataClean(
-          data.description
-            .toString()
-            .substring(0, maxLent - data?.questions.toString().length),
-        ),
-        questions: dataClean(data?.questions.toString().substring(0, maxLent)),
-        resume:
-          data?.questions.toString().length < 20
-            ? dataClean(
-                data?.resume
-                  .toString()
-                  .substring(0, maxLent - data?.description.toString().length),
-              )
-            : null,
-      }),
-      date: new Date(
-        data.date.length > 10 ? data.date.toString() : Date(),
-      ).toISOString(),
-      panel_members: iPanels,
-      interview_id: generateUUID(),
-    };
+    const payload = getData(data,maxLent,iPanels)
     setLoading(true);
     postWebClient("send-email", payload)
       .then((value) => {
@@ -278,7 +253,7 @@ export default function Home(props: any) {
         </div>
         <hr className="mt-12" />
         <div className="font-weight-200  text-black/70 mb-1">
-          Advanced Mock Interview Simulator, Powered by OpenAI Chat-GPT4
+          Advanced Mock Interview Simulator, Powered by Gemini AI
           Model. Learn about our{" "}
           <Link className="a text-blue-500" href="/policy">
             Teams & conditions.
