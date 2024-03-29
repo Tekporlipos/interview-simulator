@@ -41,7 +41,7 @@ class ChatAIService:
             # Sending the current message and getting the response
             message = chat.send_message(current['content'], generation_config=config)
 
-            return {"content": message.text, "role": 'model'}
+            return {"message": {"content": message.text, "role": 'model'}}
         except Exception as error:
             return error_response(str(error), status_code=500, logger=logger, logger_type="error")
 
