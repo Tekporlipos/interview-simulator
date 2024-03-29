@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 from flask_mail import Mail
-
+from flask_socketio import SocketIO
 from instance.dbconfig import DbConfig
 from migration.Base import db
 from dotenv import load_dotenv
@@ -15,6 +15,10 @@ app.config.from_object(DbConfig)
 db.init_app(app)
 setup_logging(app)
 CORS(app)
+
+socketio = SocketIO(app)
+
+
 
 # Configure Flask-Mail
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_HOST')
