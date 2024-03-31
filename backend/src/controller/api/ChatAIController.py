@@ -1,9 +1,13 @@
+import json
+
 import vertexai
 from flask_socketio import emit
-from vertexai.generative_models import Content, Part
+from sqlalchemy.orm.attributes import flag_modified
 from vertexai.preview.generative_models import GenerativeModel
 
-from app import socketio, app
+from app import socketio, app, db
+from src.models.InterviewSection import InterviewSection
+from src.models.PanelMember import PanelMember
 from src.services.ChatAIService import ChatAIService
 
 chatAIService = ChatAIService()
@@ -27,6 +31,7 @@ def handle_message(data):
 
 @socketio.on('chatAI')
 def handle_chat(data):
-    message = chatAIService.chatAI(vertexai, GenerativeModel, data, app.logger)
+    print(data)
+    message = chatAIService.chat_ai(db, flag_modified, PanelMember, InterviewSection, vertexai, GenerativeModel, data,json, app.logger)
     app.logger.info("ChatAI received:", data)
     emit('chatAI', message)

@@ -448,7 +448,9 @@ export function filterIntroduction(
 
 export function getAudioLink(words: string, name: string): string {
   const panel = getPanelMembers().find((value) => value.name === name);
-  return `${baseUrl}speaker?word=${words}?&voice=${panel?.voice ?? "alloy"}`;
+  return `${baseUrl}speaker?word=${words}?&voice=${
+    panel?.voice ?? "en-US-Studio-Q"
+  }`;
 }
 
 export function noIntroductionMessage() {
@@ -497,7 +499,7 @@ function convertToJSON(input: string): string {
         let str = input.replace(pattern, "");
         const list = str.split(":");
         if (list.length > 1) {
-          jsonObject = assignToGenie(list[list.length - 1].trim());
+          jsonObject = assignToGenie(findLongestSentence(list).trim());
         } else {
           jsonObject = assignToGenie(
             "Apologies, but we encountered an issue on our end and can't proceed to the next question. Please click on the replay button to retry this process.",
@@ -510,7 +512,19 @@ function convertToJSON(input: string): string {
 }
 
 function assignToGenie(question: string): any {
-  return { panel_name: "Genie AI", answer: question };
+  return { panel_name: "Genie AI", question: question, type: "Question" };
+}
+
+function findLongestSentence(arr: string[]): string {
+  let longestSentence = "";
+  let maxLength = 0;
+  arr.forEach((str) => {
+    if (str.length > maxLength) {
+      longestSentence = str;
+      maxLength = str.length;
+    }
+  });
+  return longestSentence;
 }
 
 function cleanJsonCode(input: string): string {
@@ -552,10 +566,8 @@ export function getDatOfRequest(
   audioRef: any,
   setSpeaker: any,
 ) {
-
   if (value.message) {
     let extractFile = JSON.parse(convertToJSON(value?.message.content) ?? {});
-    console.log(value.message)
     if (extractFile.length > 0) {
       setInterviewQuestions(extractFile);
 
@@ -657,30 +669,29 @@ export function getTimeLeft(size: number, stage: number): number {
   return 33 - stage * (30 / size);
 }
 
-
-export function getData(data:any,maxLent:any, iPanels:any) {
+export function getData(data: any, maxLent: any, iPanels: any) {
   return {
     full_name: data.full_name,
     position: data.position,
     recipient: data.recipient,
     description: JSON.stringify({
       description: dataClean(
-          data.description
-              .toString()
-              .substring(0, maxLent - data?.questions.toString().length),
+        data.description
+          .toString()
+          .substring(0, maxLent - data?.questions.toString().length),
       ),
       questions: dataClean(data?.questions.toString().substring(0, maxLent)),
       resume:
-          data?.questions.toString().length < 20
-              ? dataClean(
-                  data?.resume
-                      .toString()
-                      .substring(0, maxLent - data?.description.toString().length),
-              )
-              : null,
+        data?.questions.toString().length < 20
+          ? dataClean(
+              data?.resume
+                .toString()
+                .substring(0, maxLent - data?.description.toString().length),
+            )
+          : null,
     }),
     date: new Date(
-        data.date.length > 10 ? data.date.toString() : Date(),
+      data.date.length > 10 ? data.date.toString() : Date(),
     ).toISOString(),
     panel_members: iPanels,
     interview_id: generateUUID(),

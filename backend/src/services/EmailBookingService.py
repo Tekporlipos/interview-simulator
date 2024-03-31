@@ -32,6 +32,7 @@ class EmailBookingService:
         try:
             # Create EmailMessage entity
             email_message_entity = email_message(
+                id=str(uuid.uuid4()),
                 date=data.get('date', datetime.now()),
                 description=data.get('description', ''),
                 full_name=data.get('full_name'),
@@ -46,9 +47,8 @@ class EmailBookingService:
             # Create PanelMember entities
             panel_members = []
             for panel_member_data in data.get('panel_members', []):
-                panel_id = str(uuid.uuid4())
                 panel = panel_member(
-                    id=panel_id,
+                    id=str(uuid.uuid4()),
                     email=panel_member_data.get('email', None),
                     description=panel_member_data.get('description', None),
                     expertise=panel_member_data.get('expertise', None),

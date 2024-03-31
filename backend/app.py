@@ -14,11 +14,13 @@ app = Flask(__name__)
 app.config.from_object(DbConfig)
 db.init_app(app)
 setup_logging(app)
-CORS(app)
 
-socketio = SocketIO(app)
+# Add a list of allowed origins for CORS
+allowed_origins = [origin.strip() for origin in os.environ.get('CORS_ORIGIN').split(',')]
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
-
+# Create a SocketIO instance with CORS support
+socketio = SocketIO(app, cors_allowed_origins=allowed_origins)
 
 # Configure Flask-Mail
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_HOST')
@@ -36,6 +38,7 @@ with app.app_context():
     import src.models.PanelMember
     import src.models.InterviewSection
     import src.models.UserFeedback
+
     db.create_all()
 
 if __name__ == '__main__':
