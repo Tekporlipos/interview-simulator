@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { getTodayDDMMYY } from "@/utlities/functions";
-import {AuthModalComponent} from "@/component/auth/auth.modal.component";
+import { AuthModalComponent } from "@/component/auth/auth.modal.component";
+import Link from "next/link";
 
 type DeviceLabels = {
   [key: string]: string;
@@ -68,7 +69,7 @@ export default function SettingsModalComponent(props: any) {
       setTimeout(() => {
         setError({
           recognition:
-            "Speech recognition is not supported in your browser. We recommend using Google Chrome for the best experience.",
+            "Speech synthesis isn't supported in your browser. For the best experience, try using Google Chrome or Safari.",
         });
       }, 500);
     }
@@ -78,7 +79,7 @@ export default function SettingsModalComponent(props: any) {
     setModal(false);
     setTimeout(() => {
       props.setPermissions(true);
-      props.setStage(1);
+      props.setStage(4);
     }, 1000);
   }
   const startVideo = () => {
@@ -121,7 +122,7 @@ export default function SettingsModalComponent(props: any) {
 
   return (
     <div>
-      {count>2&&<AuthModalComponent/>}
+      {count > 2 && <AuthModalComponent />}
       {modal ? (
         <div
           className={`absolute w-full h-full z-50 ${modal ? "bg-white" : ""}`}
@@ -378,7 +379,16 @@ export default function SettingsModalComponent(props: any) {
                     </div>
                   ) : null}
                   <div className="text-red-500 max-w-md text-wrap font-weight-300 mt-3">
-                    {error[settings]}
+                    {error[settings]}{" "}
+                    {error[settings] && (
+                      <div>
+                        Alternatively, consider upgrading your subscription plan
+                        to access this feature. Check out our pricing{" "}
+                        <Link href="/pricing" className="text-blue-500">
+                          here.
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

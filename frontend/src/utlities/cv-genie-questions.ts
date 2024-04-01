@@ -192,7 +192,7 @@ export function getPanelMembers(): IPanel[] {
         "Experienced Chairperson with a versatile skill set, capable of leading and overseeing all aspects of the interview process, ensuring a smooth and organized experience for candidates and the interview panel.",
       email: "",
       selected: true,
-      voice: "alloy",
+      voice: "en-US-Studio-Q",
       profile: "/p6.png",
     },
     {
@@ -201,7 +201,7 @@ export function getPanelMembers(): IPanel[] {
       description:
         "HR Representative specializing in talent acquisition and employee relations, ensuring that HR-related aspects of the interview process are handled effectively and in compliance with organizational policies.",
       email: "",
-      voice: "nova",
+      voice: "en-US-Studio-O",
       selected: false,
       profile: "/p1.jpg",
     },
@@ -211,7 +211,7 @@ export function getPanelMembers(): IPanel[] {
       description:
         "Subject Matter Expert (SME) in marketing, with extensive experience in digital marketing strategies and brand management. Responsible for assessing marketing-related qualifications.",
       email: "",
-      voice: "echo",
+      voice: "en-US-Wavenet-D",
       selected: false,
       profile: "/p2.jpg",
     },
@@ -221,7 +221,7 @@ export function getPanelMembers(): IPanel[] {
       description:
         "Behavioral Assessor with a background in finance, specializing in financial planning and investment management. Responsible for evaluating behavioral and soft skills.",
       email: "",
-      voice: "shimmer",
+      voice: "en-US-Wavenet-G",
       selected: false,
       profile: "/p4.png",
     },
@@ -231,7 +231,7 @@ export function getPanelMembers(): IPanel[] {
       description:
         "Practical Assessor with a background as a Senior, possessing expertise in practical development and system architecture. Responsible for evaluating technical skills and proficiency.",
       email: "",
-      voice: "fable",
+      voice: "en-US-Wavenet-J",
       selected: false,
       profile: "/p3.png",
     },
@@ -241,7 +241,7 @@ export function getPanelMembers(): IPanel[] {
       description:
         "Diversity and Inclusion Representative committed to promoting fairness, equity, and inclusivity throughout the interview process, ensuring that all candidates have an equal opportunity.",
       email: "",
-      voice: "onyx",
+      voice: "en-US-Wavenet-B",
       selected: false,
       profile: "/p5.jpg",
     },
@@ -403,11 +403,11 @@ export function getIntroduction(role: string): Array<any> {
       panel_name: "David Wilson",
       expertise: "Subject Matter Expert (SME)",
       question: `Hi there, I'm David Wilson, your Subject Matter Expert in ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}. My journey has revolved around digital ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )} strategies and brand management. Today, I'm here to assess your ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}-related qualifications.`,
       type: "introduction",
       answer: null,
@@ -415,8 +415,13 @@ export function getIntroduction(role: string): Array<any> {
     {
       panel_name: "John Smith",
       expertise: "Practical Assessor",
-      question: `Hello, I'm John Smith, your Practical Assessor. With a background as a Senior ${role}, I've spent years delving into the intricacies of ${convertNounToAdverb(
-        role,
+      question: `Hello, I'm John Smith, your Practical Assessor. With a background as a Senior ${role
+        .toLowerCase()
+        .replace(
+          /\bjunior\b|\bsenior\b/g,
+          "",
+        )}, I've spent years delving into the intricacies of ${convertNounToAdverb(
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )}. Today, I'll be evaluating your practical skills and proficiency.`,
       type: "introduction",
       answer: null,
@@ -425,7 +430,7 @@ export function getIntroduction(role: string): Array<any> {
       panel_name: "Vivian Davis",
       expertise: "Behavioral Assessor",
       question: `Pleasure to meet you! I'm Vivian Davis, your Behavioral Assessor. My background in ${convertNounToAdverb(
-        role,
+        role.toLowerCase().replace(/\bjunior\b|\bsenior\b/g, ""),
       )} equips me to evaluate behavioral and soft skills.`,
       type: "introduction",
       answer: null,
@@ -481,19 +486,45 @@ export function interviewPrompt(
   const question = json.questions;
   switch (index) {
     case 0:
-      return `What ever you do make sure your response is in this format, JSON code [{"panel_name": "","expertise": "","question": "","type": "question"}]. Let's simulate a mock interview for the position of ${data?.position}. The candidate has just introduced themselves, mentioning: ${data?.introduction} ${
-        resume?.length > 20 ? ", and resume (CV): " + resume : ""
-      }. Please generate a relevant follow-up question and assign it to the panel members make it user friendly start with nice gesture: ${data?.panels} based on their respective fields and the job requirements to assess the candidate's suitability. Job requirements: ${requirement}.`;
+      return `Generate a user-friendly follow-up question to assess the candidate's suitability for the position of 
+      ${data?.position} in a mock interview. The question should be relevant to the candidate's introduction and, 
+      if available, their resume (CV), and should be assigned to the panel members based on their respective fields 
+      and the job requirements. Start with a nice gesture and tailor the question to assess the candidate's fit for 
+      the role. If provided, consider the job requirements when formulating the question. 
+      Remember to ensure that the response is in this JSON format, [{"panel_name": "","expertise": "","question": "","type": "question"}]. 
+      ${
+        requirement ? "  Job requirements: " + requirement : ""
+      }, candidate’s introduction: ${data?.introduction} ${
+        resume?.length > 20 ? ", resume (CV): " + resume : ""
+      } and , panel members: ${data?.panels}.`;
     case 1:
-      return `Ensure each response is in this JSON format {"panel_name": "", "expertise": "", "question": "", "type": "Question"}. Simulate a ${type} interview for a ${
+      return `Simulate a ${type} interview for a ${
         data.position
-      } role ${requirement ? " with these requirements: " + requirement : ""}${
-        resume?.length > 20 ? ", and candidate resume(CV): " + resume : ""
-      }. Panel member details: ${data.panels}.${
+      } role, with the Panel member details: ${data.panels}. 
+      Your task is to ask one question at a time ${
         question?.length > 20
-          ? " Based on these questions" + question + "."
+          ? " Based on these questions" + question + " and."
           : ""
-      } Ask one question at a time, and include my previous answer in your response. If I answer incorrectly, provide brief feedback before moving on to the next question. Ask questions related to the specified requirements and keep the interview conversational and user-friendly. Remember always to make sure you ask a question.`;
+      }, related to the ${
+        requirement
+          ? "specified requirements (" +
+            requirement +
+            ") " +
+            "for the role, and include the"
+          : ""
+      } interviewee's previous answer in your response. Keep the interview conversational, 
+          user-friendly, and ensure that the interviewee has a clear understanding of the required ${
+            type.split(" ")[0]
+          } 
+          skills and experience for the role. Please ensure that each response is in the following 
+          JSON format: {'panel_name': '', 'expertise': '', 'question': '', 'type': 'Question'}. 
+          If the interviewee answers incorrectly, provide brief feedback before moving on to the next question. 
+          The questions should cover a range of ${
+            type.split(" ")[0]
+          } skills and experience relevant to the 
+          ${
+            data.position
+          } role, and the interview should maintain a conversational and user-friendly tone throughout.`;
     case 2:
       return `Let's simulate a closing interview. Imagine you are ${data.panels} as the panel members. Please provide real-world interview closing answers based on the role of ${data.position} and its requirements: ${requirement}. One answer at a time, but assign the answer to one of the panel members based on their experiences. Make the answers more user-friendly and real-world-like. Before you answer the question, you can briefly discuss my question, especially when it is an open-ended question. I want the response to fill the JSON object. I am using it for a project, so any text not in the JSON cannot be read: {"panel_name": "${data.panel_name}", "answer": "Your answer goes here"}. Remember to assign one answer to a panel member at a time, as only one panel member can speak at a time. The interviewee's question: ${data.question}`;
   }
