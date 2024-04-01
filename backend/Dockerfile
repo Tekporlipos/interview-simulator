@@ -1,32 +1,17 @@
-# Stage 1: Build the NestJS application
-FROM node:20 AS builder
-
+FROM python:3.9.18-slim
+LABEL authors="tekporlipos"
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the container
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application source code
+COPY ./requirements.txt .
+RUN pip3 install wheel
+RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
 
-# Build the NestJS application
-RUN npm run build
+#RUN pytest -q ./test/unit test
+#
+#RUN if [ $? -ne 0 ]; then \
+#        echo "Unit tests failed. Exiting..."; \
+#        exit 1; \
+#    fi
 
-# Stage 2: Create a smaller image for production
-FROM node:20-alpine
-
-WORKDIR /app
-
-# Copy only the built files from the previous stage
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package*.json ./
-
-# Expose the port your app runs on
-EXPOSE 3000
-
-# Command to run the application
-CMD ["node", "dist/main"]
+EXPOSE 5000
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

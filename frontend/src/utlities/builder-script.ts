@@ -1,5 +1,6 @@
 import { OBJECT_DATA } from "./question";
-export const baseUrl: string =  process.env['NEXT_PUBLIC_BACK_SERVER_URL']+"/api/v1/";
+export const baseUrl: string =
+  process.env["NEXT_PUBLIC_BACK_SERVER_URL"] + "/api/v1/";
 // export const baseUrl: string = "https://api.genieaibuilder.com/api/v1";
 export interface HistoryItem {
   id: string;

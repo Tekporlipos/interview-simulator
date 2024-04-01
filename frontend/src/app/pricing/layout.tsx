@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Interview Simulator - Pricing",
   applicationName: "Interview Simulator",
   description:
-      "Boost your interview skills with InterviewSimulator. Experience lifelike interview scenarios and get personalized feedback to improve how you communicate and solve problems. Tailored for different jobs, it builds confidence and helps you succeed in interviews.",
+    "Boost your interview skills with InterviewSimulator. Experience lifelike interview scenarios and get personalized feedback to improve how you communicate and solve problems. Tailored for different jobs, it builds confidence and helps you succeed in interviews.",
   keywords: [
     "Interview Simulation",
     "GenieAIBuilder",
