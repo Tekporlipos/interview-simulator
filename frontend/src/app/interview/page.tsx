@@ -18,16 +18,13 @@ import {
   getAudioLink,
   getDataOfRequestObject,
   getDatOfRequest,
-  getTimeLeft, getTodayDDMMYY,
+  getTimeLeft,
+  getTodayDDMMYY,
   noIntroductionMessage,
   playTrack,
 } from "@/utlities/functions";
 
-import {
-  getWebclient,
-  IChat,
-  postWebClient,
-} from "@/utlities/builder-script";
+import { getWebclient, IChat, postWebClient } from "@/utlities/builder-script";
 import SettingsModalComponent from "@/component/interview/settings.modal.component";
 import AccessModalComponent from "@/component/interview/access.modal.component";
 import {
@@ -169,7 +166,12 @@ export default function Home(props: any): React.JSX.Element {
     // Check if permissions are granted and not offline
     if (permissions && !isOffline) {
       // Stage 1: Playing interview questions
-      if (stage === 1 && audioRef.current && interviewQuestions && interviewQuestions.length > 0) {
+      if (
+        stage === 1 &&
+        audioRef.current &&
+        interviewQuestions &&
+        interviewQuestions.length > 0
+      ) {
         // Define endedListener to handle when audio ends
         const endedListener = () => {
           startIndex.current++;
@@ -183,14 +185,14 @@ export default function Home(props: any): React.JSX.Element {
           } else {
             // Play next question
             playTrack(
-                getAudioLink(
-                    interviewQuestions[startIndex.current].question,
-                    interviewQuestions[startIndex.current].panel_name,
-                ),
+              getAudioLink(
+                interviewQuestions[startIndex.current].question,
                 interviewQuestions[startIndex.current].panel_name,
-                audioRef,
-                setSpeaker,
-                0,
+              ),
+              interviewQuestions[startIndex.current].panel_name,
+              audioRef,
+              setSpeaker,
+              0,
             );
           }
         };
@@ -198,13 +200,13 @@ export default function Home(props: any): React.JSX.Element {
         audioRef.current?.addEventListener("ended", endedListener);
         // Play first question
         playTrack(
-            getAudioLink(
-                interviewQuestions[startIndex.current].question,
-                interviewQuestions[startIndex.current].panel_name,
-            ),
+          getAudioLink(
+            interviewQuestions[startIndex.current].question,
             interviewQuestions[startIndex.current].panel_name,
-            audioRef,
-            setSpeaker,
+          ),
+          interviewQuestions[startIndex.current].panel_name,
+          audioRef,
+          setSpeaker,
         );
       } else if (stage === 2) {
         // Stage 2: Interview ended, preparing for follow-up
@@ -219,18 +221,26 @@ export default function Home(props: any): React.JSX.Element {
         // Stage 3: Follow-up questions
         if (message.current.length > 5) {
           // Check if reached end of interview
-          if (interviewQuestions && startIndex.current >= interviewQuestions.length) {
+          if (
+            interviewQuestions &&
+            startIndex.current >= interviewQuestions.length
+          ) {
             // Post interview answers
-            postWebClient("interview-section/"+props?.data?.params?.id, {
-              "interview_type": "follow up",
-              "messages": [
-                ...interviewAnswers.current,
-                {
-                  question: interviewQuestions[startIndex.current - 1].question,
-                  answer: message.current,
-                },
-              ]
-            }, "PATCH");
+            postWebClient(
+              "interview-section/" + props?.data?.params?.id,
+              {
+                interview_type: "follow up",
+                messages: [
+                  ...interviewAnswers.current,
+                  {
+                    question:
+                      interviewQuestions[startIndex.current - 1].question,
+                    answer: message.current,
+                  },
+                ],
+              },
+              "PATCH",
+            );
             // Reset state
             setInterviewQuestions(undefined);
             setStage(4);
@@ -248,9 +258,9 @@ export default function Home(props: any): React.JSX.Element {
                   requirement: interview.current?.description,
                   position: interview.current?.position,
                   panels: null,
-                }
+                },
               },
-              interview_type: "follow up"
+              interview_type: "follow up",
             };
             socketRef.current?.emit("chatAI", { data: payload });
             callbackData.current = null;
@@ -267,14 +277,14 @@ export default function Home(props: any): React.JSX.Element {
             ];
             message.current = "";
             playTrack(
-                getAudioLink(
-                    interviewQuestions[startIndex.current].question,
-                    interviewQuestions[startIndex.current].panel_name,
-                ),
+              getAudioLink(
+                interviewQuestions[startIndex.current].question,
                 interviewQuestions[startIndex.current].panel_name,
-                audioRef,
-                setSpeaker,
-                100,
+              ),
+              interviewQuestions[startIndex.current].panel_name,
+              audioRef,
+              setSpeaker,
+              100,
             );
           }
           // Add event listener for audio end
@@ -287,25 +297,30 @@ export default function Home(props: any): React.JSX.Element {
           // Play audio if introduction message is too short
           playAudio(noIntroductionMessage(), 2);
         }
-      } else if (step && stage >= 4 && stage < step?.length - 2 && audioRef.current) {
+      } else if (
+        step &&
+        stage >= 4 &&
+        stage < step?.length - 2 &&
+        audioRef.current
+      ) {
         // Stage 4 onwards: Interview steps
         let panelMembers;
         if (!conversation.current) {
           // Set panel member
           if (stage === 4) {
             panelMembers = interview.current?.panelMembers.find(
-                (v) => v.name === "David Wilson" || v.name === "John Smith",
+              (v) => v.name === "David Wilson" || v.name === "John Smith",
             );
           } else {
             let stepElement = step[stage];
             panelMembers = interview.current?.panelMembers?.find(
-                (v) => v.expertise === stepElement.expertise,
+              (v) => v.expertise === stepElement.expertise,
             );
           }
           // Default panel member
           if (!panelMembers)
             panelMembers = interview.current?.panelMembers.find(
-                (v) => v.name === "Genie AI",
+              (v) => v.name === "Genie AI",
             );
           if (panelMembers) {
             // Fetch question for panel member
@@ -320,7 +335,7 @@ export default function Home(props: any): React.JSX.Element {
                     panel_name: panelMembers.name,
                     expertise: panelMembers.expertise,
                   }),
-                }
+                },
               },
               interview_type: step[stage].name,
             };
@@ -336,11 +351,11 @@ export default function Home(props: any): React.JSX.Element {
         } else if (conversation.current?.length % 2 === 0 && message.current) {
           // Handle user messages during interview
           if (
-              (interview.current?.date &&
-                  !isWithin15FromNow(
-                      interview.current?.date,
-                      getTimeLeft(step.length - 7, stage - 3),
-                  ))
+            interview.current?.date &&
+            !isWithin15FromNow(
+              interview.current?.date,
+              getTimeLeft(step.length - 7, stage - 3),
+            )
           ) {
             conversation.current = undefined;
             setStage((prevState) => prevState + 1);
@@ -368,7 +383,7 @@ export default function Home(props: any): React.JSX.Element {
         // Before closing question: Panel members answering
         if (message.current) {
           let panelMembers = interview.current?.panelMembers.find(
-              (v) => v.name === "Genie AI",
+            (v) => v.name === "Genie AI",
           );
           if (panelMembers) {
             // Fetch question for closing
@@ -388,7 +403,7 @@ export default function Home(props: any): React.JSX.Element {
                     expertise: panelMembers.expertise,
                   }),
                   question: message.current,
-                }
+                },
               },
               interview_type: step[stage].name,
             };
@@ -397,14 +412,14 @@ export default function Home(props: any): React.JSX.Element {
         } else {
           // Play closing question if no answer provided
           playTrack(
-              getAudioLink(
-                  getClosingQuestion().question,
-                  getClosingQuestion().panel_name,
-              ),
+            getAudioLink(
+              getClosingQuestion().question,
               getClosingQuestion().panel_name,
-              audioRef,
-              setSpeaker,
-              2000,
+            ),
+            getClosingQuestion().panel_name,
+            audioRef,
+            setSpeaker,
+            2000,
           );
           // Define endedListener to handle when audio ends
           const endedListener = () => {
@@ -419,11 +434,11 @@ export default function Home(props: any): React.JSX.Element {
         const data = getClosingRemarkQuestion();
         // Play closing remarks
         playTrack(
-            getAudioLink(data.question, data.panel_name),
-            data.panel_name,
-            audioRef,
-            setSpeaker,
-            1000,
+          getAudioLink(data.question, data.panel_name),
+          data.panel_name,
+          audioRef,
+          setSpeaker,
+          1000,
         );
         // Define endedListener to handle when audio ends
         const endedListener = () => {
@@ -439,8 +454,6 @@ export default function Home(props: any): React.JSX.Element {
     audioRef.current?.addEventListener("error", () => setError(true));
   }, [stage, permissions, message.current, interviewQuestions, reply]);
 
-
-
   function getQuestion(
     data: any,
     callback: EventListener,
@@ -449,7 +462,10 @@ export default function Home(props: any): React.JSX.Element {
     if (data) {
       setLoading(true);
       socketRef.current?.emit("chatAI", { data });
-      callbackData.current = { data:[{role: "user", content: "response"}], type };
+      callbackData.current = {
+        data: [{ role: "user", content: "response" }],
+        type,
+      };
       audioRef.current?.addEventListener("ended", callback);
     }
   }
