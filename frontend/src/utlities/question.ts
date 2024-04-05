@@ -306,9 +306,9 @@ export function isWithin30MinutesFromNow(
 }
 
 export function isWithin15FromNow(DateString: string, left: number): boolean {
-  const date: number = new Date(DateString).getTime() + (25*60*1000);
+  const date: number = new Date(DateString).getTime() + 20 * 60 * 1000;
   const now: number = new Date().getTime();
-  return now + (left*60*1000) < date;
+  return now + left * 60 * 1000 < date;
 }
 
 export function getInitialsFromUsername(username: string): string {
