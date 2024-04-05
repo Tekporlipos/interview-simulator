@@ -137,6 +137,8 @@ export interface IPanel {
   email: string;
   selected: boolean;
   profile: string;
+  audio?: string;
+  bio?: string;
 }
 
 export interface PanelMember {

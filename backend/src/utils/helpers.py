@@ -51,21 +51,21 @@ def interview_prompt(index, data, interview_type="technical"):
             f"panel members: {data.get('panels')}."
         )
     elif index == 1:
-        return (f"Simulate a {interview_type} interview for a {data.get('position')} role, with the Panel member "
-                f"details: {data.get('panels')}. Your task is to ask one question at"
-                f" a time {' Based on these questions {question} and.' if len(question) > 20 else ''}, related to the "
-                f"{'specified requirements ({requirement}) for the role, and include the ' if requirement else ''} "
-                f"interviewee's previous answer in your response. Keep the interview conversational, user-friendly, "
-                f"and ensure that the interviewee has a clear understanding of the required "
-                f"{interview_type.split(' ')[0]} skills and experience for the role. Please ensure that each response "
-                f"is in the following JSON string format: {{'panel_name': '', 'expertise': '', 'question': '', "
-                f"'type': 'Question'}}. If the interviewee answers incorrectly, provide brief feedback before moving "
-                f"on to the next question. The questions should cover a range of {interview_type.split(' ')[0]} "
-                f"skills and experience relevant to the {data.get('position')} role, and the interview should "
-                f"maintain a conversational and user-friendly tone throughout and the question should be infinite, "
-                f"do not base your questions only on the users response, remember to always stick to the "
-                f"interview and ask question in all your response."
-                )
+        return (
+            f'Ensure each response is in this JSON format {{"panel_name": "", "expertise": "", "question": "", '
+            f'"type": "Question"}}. Simulate a {interview_type} interview for a {data.get("position")} role '
+            f'{" with these requirements: " + requirement if requirement is not None and len(requirement) >30 else ""}'
+            f'{" , and candidate resume(CV): " + resume if resume is not None and len(resume) > 20 else ""}. '
+            f'Panel member details: {data.get("panels")}.'
+            f'{" Based on these questions: " + question + "." if question is not None and len(question) > 5 else ""}'
+            f'Ask one question at a time, and include my previous answer in your response. '
+            f'If the interviewee answers incorrectly, provide brief feedback before moving on to the next question. '
+            f'The questions should cover a range of {interview_type.split(" ")[0]} '
+            f'skills and experience relevant to the {data.get("position")} role, and the interview should '
+            f'maintain a conversational and user-friendly tone throughout. Remember, always '
+            f'ask a question in your response and the question should be infinite when user get a '
+            f'question wrong just move to different topic after giving your feedback.'
+        )
     elif index == 2:
         return (f"Let's simulate a closing interview. Imagine you are {data.get('panels')} as the panel members. "
                 f"Please provide real-world interview closing answers based on the role of {data.get('position')} and "
