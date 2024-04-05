@@ -498,11 +498,15 @@ function convertToJSON(input: string): string {
         const pattern = new RegExp(`[^a-zA-Z0-9\\s:]`, "g");
         let str = input.replace(pattern, "");
         const list = str.split(":");
+        console.log(str);
         if (list.length > 1) {
           jsonObject = assignToGenie(findLongestSentence(list).trim());
+        } else if (str.length > 20) {
+          jsonObject = assignToGenie(str);
         } else {
           jsonObject = assignToGenie(
-            "Apologies, but we encountered an issue on our end and can't proceed to the next question. Please click on the replay button to retry this process.",
+            "Apologies, but we encountered an issue on our end and can't proceed to the next question. " +
+              "Please repeat your answer.",
           );
         }
       }
@@ -666,7 +670,7 @@ export function getTimeOfDay(): string {
 }
 
 export function getTimeLeft(size: number, stage: number): number {
-  return 25 - stage * (25 / size);
+  return 20 - stage * (20 / size);
 }
 
 export function getData(data: any, maxLent: any, iPanels: any) {
