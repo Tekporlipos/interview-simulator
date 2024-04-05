@@ -11,7 +11,7 @@ from src.services.ChatAIService import get_history_data
 
 class InterviewSection(db.Model):
     __tablename__ = 'interview_sections'
-    id = Column(String(36), primary_key=True, default=str(uuid.uuid4()))
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     interview_id = Column(String(36), ForeignKey('email_message.id'), unique=True)
     created_at = Column(DateTime, default=func.current_timestamp())
     updated_at = Column(DateTime, default=func.current_timestamp(), onupdate=func.current_timestamp())
