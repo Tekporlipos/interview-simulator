@@ -62,7 +62,9 @@ def interview_prompt(index, data, interview_type="technical"):
                 f"'type': 'Question'}}. If the interviewee answers incorrectly, provide brief feedback before moving "
                 f"on to the next question. The questions should cover a range of {interview_type.split(' ')[0]} "
                 f"skills and experience relevant to the {data.get('position')} role, and the interview should "
-                f"maintain a conversational and user-friendly tone throughout."
+                f"maintain a conversational and user-friendly tone throughout and the question should be infinite, "
+                f"do not base your questions only on the users response, remember to always stick to the "
+                f"interview and ask question in all your response."
                 )
     elif index == 2:
         return (f"Let's simulate a closing interview. Imagine you are {data.get('panels')} as the panel members. "
