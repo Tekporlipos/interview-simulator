@@ -339,7 +339,7 @@ export default function Home(props: any): React.JSX.Element {
               (interview.current?.date &&
                   !isWithin15FromNow(
                       interview.current?.date,
-                      getTimeLeft(step.length - 5, stage - 3),
+                      getTimeLeft(step.length - 7, stage - 3),
                   ))
           ) {
             conversation.current = undefined;

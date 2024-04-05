@@ -666,7 +666,7 @@ export function getTimeOfDay(): string {
 }
 
 export function getTimeLeft(size: number, stage: number): number {
-  return 33 - stage * (30 / size);
+  return 25 - stage * (25 / size);
 }
 
 export function getData(data: any, maxLent: any, iPanels: any) {
