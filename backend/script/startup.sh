@@ -46,6 +46,18 @@ mkdir -p ~/.docker/cli-plugins/
 curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 chmod +x ~/.docker/cli-plugins/docker-compose
 
+# Install NGINX
+sudo apt install nginx -y
+
+# Start NGINX if not running
+if ! sudo systemctl is-active --quiet nginx; then
+    echo "NGINX is not running. Starting NGINX..."
+    sudo systemctl start nginx
+fi
+
+# Check NGINX status
+sudo systemctl status nginx
+
 # Display Docker and Docker Compose versions
 docker version
 docker compose version

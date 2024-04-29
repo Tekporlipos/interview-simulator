@@ -6,6 +6,23 @@ sudo apt update
 # Install NGINX
 sudo apt install nginx -y
 
+# Copy nginx.conf to appropriate directory
+sudo cp nginx.conf /etc/nginx/sites-available/api.interviewsimulator.org
+
+# Create a symbolic link to enable the site
+sudo ln -s /etc/nginx/sites-available/api.interviewsimulator.org /etc/nginx/sites-enabled/
+
+# Test NGINX configuration syntax
+sudo nginx -t
+
+# If NGINX configuration is valid, reload NGINX to apply changes
+if [ $? -eq 0 ]; then
+    sudo systemctl reload nginx
+else
+    echo "NGINX configuration syntax is invalid. Please check nginx.conf."
+    exit 1
+fi
+
 # Install Certbot
 sudo apt install certbot python3-certbot-nginx -y
 
@@ -25,12 +42,6 @@ if [ $? -ne 0 ]; then
 else
     echo "SSL certificate installed successfully."
 fi
-
-# Check NGINX configuration syntax
-sudo nginx -t
-
-# Reload NGINX to apply changes
-sudo systemctl reload nginx
 
 # Check NGINX status
 sudo systemctl status nginx
