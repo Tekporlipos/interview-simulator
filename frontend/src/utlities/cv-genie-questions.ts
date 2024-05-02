@@ -225,7 +225,7 @@ export function getEnablers() {
       bio: "Greetings! I'm Alexandre Silva, a dedicated Full Stack Developer passionate about crafting seamless web experiences. With expertise in both front-end and back-end technologies, I specialize in building robust and scalable web applications from concept to deployment. From designing user interfaces to implementing server-side logic, I thrive on solving complex problems and delivering high-quality solutions. Let's collaborate to bring your digital vision to life and create innovative web experiences that captivate and delight users.",
     },
     {
-      name: "Morris Author",
+      name: "Morris Arthur",
       expertise: "Prompt Engineer and AI Expert",
       description:
         "A Prompt Engineer and AI Expert specializes in designing and optimizing prompts for AI systems. This role involves creating effective prompts that guide AI interactions and improve user engagement. Additionally, the expert fine-tunes AI models to enhance performance and accuracy. Strong knowledge of natural language processing (NLP) techniques and machine learning algorithms is essential for success in this role.",
@@ -727,3 +727,96 @@ export function interviewPrompt(
 export function getErrorMessage() {
   return "Oops! It seems like we've encountered a hiccup on our end. Our team is already hard at work to fix the issue and get things back to normal as quickly as possible. We apologize for any inconvenience this may have caused you. In the meantime, could you please refresh the page and try again? If the problem persists, don't hesitate to reach out to our support team for further assistance. Thank you for your patience and understanding.";
 }
+
+
+export const subscription = [
+  {
+    "name": "Lifelike interview simulations",
+    "description": function (length?:string) {
+      return `Experience realistic interview scenarios facilitated by AI panel members (${length?.split("@")[0]} per day and ${length?.split("@")[1]}).`
+    },
+    "domains": ["Starter", "Pro", "Advance", "Business"]
+  },
+  {
+    "name": "Interview history",
+    "description":function (state?:string) {
+      return  `Access a record of past interviews for review and reflection. (On ${state} storage)`
+    },
+    "domains": ["Starter", "Pro", "Advance", "Business"]
+  },
+  {
+    "name": "Comprehensive interview and career coaching sessions",
+    "description": function (state:string = "") {
+      return `Access comprehensive coaching sessions covering interview preparation and career guidance (${state?.split("@")[0]} per day and ${state?.split("@")[1]}).`
+    },
+    "domains": ["Starter","Pro", "Advance", "Business"]
+  },
+  {
+    "name": "Personalized feedback reports",
+    "description": function (state:string = "") {
+      return `Receive tailored performance reports highlighting strengths and areas for improvement ${state}.`
+    },
+    "domains": ["Pro", "Advance", "Business"]
+  },
+  {
+    "name": "Customizable interview simulations",
+    "description": function () {
+      return "Tailor interview simulations to specific job roles and industries.";
+    },
+    "domains": ["Business"]
+  },
+  {
+    "name": "In-depth performance analytics",
+    "description": function () {
+      return "Analyze performance metrics to gain insights into interview performance."
+    },
+    "domains": ["Business"]
+  },
+  {
+    "name": "Priority support",
+    "description": function () {
+      return "Receive priority assistance and support for any inquiries or issues.";
+    },
+    "domains": ["Business"]
+  }
+];
+
+
+export const plan  = [
+{
+  "name":"Starter Plan",
+  "description":"Begin your journey to interview success with our Starter Plan. Designed for those ready to excel in interviews, this plan offers essential features at an unbeatable value. With lifelike simulations, personalized feedback, and comprehensive resources, it's the perfect foundation to boost your confidence and skills. Whether you're a recent graduate or seasoned executive, the Starter Plan equips you for success. Start your journey today!",
+  "price":8.00,
+  "note":"Free Forever",
+  "currency":"USD",
+  "color":"red-500",
+  "id":"0ed326ca-c1fc-440b-b1ba-bdfb01c43185"
+},
+  {
+    "name":"Pro Plan",
+    "description":"Upgrade to our Pro Plan for advanced interview preparation. Get realistic simulations, detailed feedback, premium resources, and personalized career coaching. Whether you're aiming for a career change or advancement, the Pro Plan equips you with the tools to excel. Take charge of your interview success today!",
+    "price":10.0,
+    "note":"Per Month",
+    "color":"green-500",
+    "currency":"USD",
+    "id":"1ab56599-ff3e-4666-9686-edda6c81c82a"
+  },
+  {
+    "name":"Advance Plan",
+    "description":"Unlock elite interview preparation with our Advanced Plan. Get lifelike simulations, detailed feedback, premium resources, personalized career coaching, and more. Elevate your interview skills and achieve your career goals with confidence. Upgrade to the Advanced Plan today!",
+    "price":15.0,
+    "note":"Per Month",
+    "color":"yellow-500",
+    "currency":"USD",
+    "id":"7b7130a6-68aa-49cb-9f13-818720c60fe8"
+  },
+  {
+    "name":"Business Plan",
+    "description":"Optimize your hiring process with our Business Plan. Access customizable simulations, performance analytics, team collaboration tools, coaching sessions, and priority support. Elevate your recruitment strategies and build a winning team today!",
+    "price":70.0,
+    "note":"Contact Support",
+    "currency":"USD",
+    "color":"blue-500",
+    "id":"b60b5334-9b9c-4ef5-9c99-716abafd58d2"
+  }
+]
