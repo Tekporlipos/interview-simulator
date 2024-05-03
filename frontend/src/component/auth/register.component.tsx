@@ -16,10 +16,13 @@ export function RegisterComponent(props: { login?: boolean }) {
     event.preventDefault();
     if (props.login) {
       //login
+      alert("We're sorry, but the login feature is currently unavailable. Please try again later. Thank you for your understanding!");
     } else {
       //register
+      alert("We're sorry, but the registration feature is currently unavailable. Please try again later. Thank you for your understanding!");
     }
   }
+
 
   return (
     <div className="md:border-2 p-10 rounded-xl shadow">

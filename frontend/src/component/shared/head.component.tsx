@@ -116,27 +116,27 @@ export default function HeadComponent(props: any) {
                 </Link>
               </ul>
             </div>
-            {props.state != "price" && (
-              <Link
-                href="/pricing"
-                className="ransition py-2 mx-5  hover:underline transition text-sm"
-              >
-                Pricing
-              </Link>
-            )}
+            {/*{props.state != "price" && (*/}
+            {/*  <Link*/}
+            {/*    href="/pricing"*/}
+            {/*    className="ransition py-2 mx-5  hover:underline transition "*/}
+            {/*  >*/}
+            {/*    Pricing*/}
+            {/*  </Link>*/}
+            {/*)}*/}
 
-            {props.state != "price" && (
-              <Link
-                href="/auth"
-                className={` transition ${
-                  visible
-                    ? "ms-5 py-2 mx-5 hover:underline transition text-sm"
-                    : "flex flex-row a justify-center hover:bg-red-700 bg-red-500 text-white ms-5 w-44 shadow-lg rounded-full align-middle p-3"
-                }`}
-              >
-                Log In
-              </Link>
-            )}
+            {/*{props.state != "price" && (*/}
+            {/*  <Link*/}
+            {/*    href="/auth"*/}
+            {/*    className={` transition ${*/}
+            {/*      visible*/}
+            {/*        ? "ms-5 py-2 mx-5 hover:underline transition text-sm"*/}
+            {/*        : "flex flex-row a justify-center hover:bg-red-700 bg-red-500 text-white ms-5 w-44 shadow-lg rounded-full align-middle p-3"*/}
+            {/*    }`}*/}
+            {/*  >*/}
+            {/*    Log In*/}
+            {/*  </Link>*/}
+            {/*)}*/}
 
             <div className="ms-5 hidden md:block">
               {(visible || props.state === "price") && <GetStartedComponent />}
@@ -204,21 +204,21 @@ export default function HeadComponent(props: any) {
           Mock Interview
         </Link>
 
-        <Link
-          href="/auth"
-          className=" my-5 w-full bg-blue-500 text-center text-white font-weight-200 transition py-2 hover:bg-blue-600 rounded-lg"
-        >
-          Log In
-        </Link>
+        {/*<Link*/}
+        {/*  href="/auth"*/}
+        {/*  className=" my-5 w-full bg-blue-500 text-center text-white font-weight-200 transition py-2 hover:bg-blue-600 rounded-lg"*/}
+        {/*>*/}
+        {/*  Log In*/}
+        {/*</Link>*/}
 
-        {props.state != "price" && (
-          <Link
-            href="/pricing"
-            className="mb-5 w-full bg-blue-500 text-center text-white font-weight-200 transition py-2 hover:bg-blue-600 rounded-lg"
-          >
-            Pricing
-          </Link>
-        )}
+        {/*{props.state != "price" && (*/}
+        {/*  <Link*/}
+        {/*    href="/pricing"*/}
+        {/*    className="mb-5 w-full bg-blue-500 text-center text-white font-weight-200 transition py-2 hover:bg-blue-600 rounded-lg"*/}
+        {/*  >*/}
+        {/*    Pricing*/}
+        {/*  </Link>*/}
+        {/*)}*/}
       </div>
     </div>
   );

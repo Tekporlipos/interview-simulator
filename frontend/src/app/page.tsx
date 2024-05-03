@@ -18,7 +18,7 @@ export default function Home() {
       <HeroComponent />
       <ConnectComponent />
       <SummaryComponent />
-      <AboutComponent />
+      <AboutComponent  />
       <WhoUseUsComponent />
       <FeatureComponent />
       <EventComponent />
