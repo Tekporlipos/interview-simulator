@@ -1,7 +1,3 @@
-Got it! Here's the README with just the Vimeo video link at the top:
-
----
-
 # InterviewSimulator Project
 
 Welcome to the InterviewSimulator project! This project consists of both frontend and backend applications designed to provide lifelike interview simulations and personalized feedback for job seekers.
