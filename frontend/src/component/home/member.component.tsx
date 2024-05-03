@@ -2,17 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { IPanel } from "@/utlities/interfaces";
 
-export default function MemberComponent({ data }: { data: IPanel }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const playAudio = (link: string) => {
-    const audio = new Audio(link);
-    audio.play();
-    setIsPlaying(true);
-    audio.addEventListener("ended", () => {
-      setIsPlaying(false);
-    });
-  };
+export default function MemberComponent({ data,playAudio,isPlaying }: { data: IPanel,playAudio:Function,isPlaying:String|undefined }) {
   return (
     <div className="cursor-pointer hover:bg-gray-700/20 transition flex flex-col justify-center items-center bg-gray-700/5  p-5 rounded-lg shadow shadow-gray-400">
       <div className="relative">
@@ -26,7 +16,7 @@ export default function MemberComponent({ data }: { data: IPanel }) {
         <svg
           onClick={() => playAudio(data.audio ?? "")}
           className={`hover:fill-red-400 transition w-8 h-8 absolute bottom-0 left-10  ${
-            isPlaying ? "animate-ping fill-red-500" : " fill-white"
+            isPlaying===data.audio  ? "animate-ping fill-red-500" : " fill-white"
           }`}
           viewBox="0 0 24 24"
         >

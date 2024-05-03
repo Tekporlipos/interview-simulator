@@ -701,3 +701,11 @@ export function getData(data: any, maxLent: any, iPanels: any) {
     interview_id: generateUUID(),
   };
 }
+
+
+export function formatCurrency(amount: number, currencyCode: string, locale: string = "en-US", ): string {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currencyCode
+  }).format(amount);
+}
