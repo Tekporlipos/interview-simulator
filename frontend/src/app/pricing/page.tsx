@@ -72,7 +72,11 @@ export default function PricingComponent() {
                     <div className="font-weight-700 text-xl cursor-pointer">{value.name}</div>
                     {value.name==="Starter Plan"?<div className={`shadow rounded-xl transition cursor-not-allowed bg-${value.color} text-white px-3 py-2 border text-sm`}>
                       Default plan
-                    </div>:<Link href={`/pricing/checkout/${value.id}`} className={`shadow cursor-pointer z-50 transition rounded-xl px-3 py-2 border text-sm text-white hover:${value.color}/5 bg-${value.color} `}>
+                    </div>:<Link
+                        // href={`/pricing/checkout/${value.id}`}
+                        href="#"
+                        onClick={() => alert("We're sorry, but the upgrade subscription feature is currently unavailable. Please check back later for updates. Thank you for your understanding!")}
+                        className={`shadow cursor-pointer z-50 transition rounded-xl px-3 py-2 border text-sm text-white hover:${value.color}/5 bg-${value.color} `}>
                       Upgrade Plan
                     </Link>}
 
