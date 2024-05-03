@@ -79,11 +79,33 @@ pip install -r requirements.txt
    - Create a `.env` file in the root directory.
    - Add the necessary environment variables such as database URL.
 
+
+## Environment Variables
+
+Before starting the backend server, make sure to set the following environment variables:
+
+- **POSTGRES_COPY_URL_TEST**: PostgreSQL database URL for the test environment.
+- **VERCEL_ENV**: Environment configuration for Vercel (development, staging, production, etc.).
+- **CORS_ORIGIN**: Allowed origins for Cross-Origin Resource Sharing (CORS). Example: `http://localhost:3000,https://www.interviewsimulator.org`.
+- **GOOGLE_PROJECT_ID**: Google Cloud project ID.
+- **GOOGLEAI_API_KEY**: API key for Google AI services.
+- **GOOGLE_AI_API_MODEL**: Model name for Google AI services.
+- **MAIL_HOST**: SMTP server hostname (e.g., smtp.gmail.com).
+- **MAIL_PASSWORD**: Password for the email account used for sending emails.
+- **MAIL_USERNAME**: Username for the email account used for sending emails.
+
+
 7. Run the Flask server:
 
 ```bash
 flask run
 ```
+
+or
+```bash
+python3 -m flask run
+```
+
 
 ## Contributing
 
