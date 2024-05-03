@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14658ecc-166e-479a-9221-bc343e3c58f8" name="Changes" comment="" />
+    <list default="true" id="14658ecc-166e-479a-9221-bc343e3c58f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +56,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "npm.dev.executor": "Run",
     "ts.external.directory.path": "/Users/tekporlipos/Documents/Development/Project/Web/interview-simulator/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -88,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711784680221</updated>
       <workItem from="1711784681281" duration="16000" />
-      <workItem from="1714695766895" duration="639000" />
+      <workItem from="1714695766895" duration="1607000" />
     </task>
     <servers />
   </component>
