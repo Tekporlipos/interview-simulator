@@ -166,7 +166,8 @@ export default function Home(props: any) {
           setActions({ 1: "Close" });
         }
       })
-      .catch((_) => {
+      .catch((reason) => {
+        console.error(reason)
         setState("red");
         setLoading(false);
         handleShowToast(

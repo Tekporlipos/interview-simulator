@@ -17,7 +17,7 @@ setup_logging(app)
 
 # Add a list of allowed origins for CORS
 allowed_origins = [origin.strip() for origin in os.environ.get('CORS_ORIGIN').split(',')]
-CORS(app, resources={r"/*": {"origins": allowed_origins}})
+CORS(app, resources={r"/*": {"origins": allowed_origins}}, support_credentials=True)
 
 # Create a SocketIO instance with CORS support
 socketio = SocketIO(app, cors_allowed_origins=allowed_origins)
