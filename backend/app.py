@@ -1,5 +1,5 @@
 import os
-
+from flask_caching import Cache
 from flask import Flask
 from flask_mail import Mail
 from flask_socketio import SocketIO
@@ -14,6 +14,10 @@ app = Flask(__name__)
 app.config.from_object(DbConfig)
 db.init_app(app)
 setup_logging(app)
+
+cache = Cache(config={"CACHE_TYPE": "SimpleCache", "CACHE_DEFAULT_TIMEOUT": 1000*60*60})
+cache.init_app(app)
+
 
 # Add a list of allowed origins for CORS
 allowed_origins = [origin.strip() for origin in os.environ.get('CORS_ORIGIN').split(',')]
