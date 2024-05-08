@@ -177,11 +177,9 @@ export default function Home(props: any) {
   }
 
   useEffect(() => {
-    setTimeout(() => {
       const intCount = Number(localStorage.getItem("book" + getTodayDDMMYY()));
       setCount(intCount);
       intCount === 0 && clearBookLocalStorage();
-    }, 1000);
   }, []);
   return (
     <div className="overflow-x-hidden">
