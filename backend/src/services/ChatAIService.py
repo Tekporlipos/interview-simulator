@@ -1,6 +1,5 @@
 import copy
 import os
-import uuid
 from typing import List
 
 from vertexai.generative_models import Content, Part
@@ -95,7 +94,7 @@ class ChatAIService:
 
                 # Get history from interview section
                 history = copy.deepcopy(get_history_data(interview_section, json).get(to_kebab_case(interview_type)))
-
+                print(history)
                 # Get the current prompt from history
                 current = history.pop()
 
