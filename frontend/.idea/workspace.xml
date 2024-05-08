@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14658ecc-166e-479a-9221-bc343e3c58f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/resources/activity/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resources/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/resources/report/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/booking/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/booking/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/shared/head.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/shared/head.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utlities/builder-script.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utlities/builder-script.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,23 +49,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/dev-upgrade&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tekporlipos/Documents/Development/Project/genieaibuilder/frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/tekporlipos/Documents/Development/Project/Web/interview-simulator/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feat/dev-upgrade",
+    "last_opened_file_path": "/Users/tekporlipos/Documents/Development/Project/Web/interview-simulator/frontend/src/app/ pesources/activitie",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.dev.executor": "Run",
+    "ts.external.directory.path": "/Users/tekporlipos/Documents/Development/Project/Web/interview-simulator/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/ pesources/activitie" />
+      <recent name="$PROJECT_DIR$/src/app/ pesources/report" />
+      <recent name="$PROJECT_DIR$/src/app/ pesources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -70,7 +83,7 @@
       <node-interpreter value="project" />
       <package-manager value="npm" />
       <envs>
-        <env name="NEXT_PUBLIC_BACK_SERVER_URL" value="https://api.interviewsimulator.org" />
+        <env name="NEXT_PUBLIC_BACK_SERVER_URL" value="http://127.0.0.1:5000" />
       </envs>
       <method v="2" />
     </configuration>
@@ -92,7 +105,10 @@
       <updated>1711784680221</updated>
       <workItem from="1711784681281" duration="16000" />
       <workItem from="1714695766895" duration="1607000" />
-      <workItem from="1714698313168" duration="3543000" />
+      <workItem from="1714698313168" duration="5311000" />
+      <workItem from="1714731827123" duration="18000" />
+      <workItem from="1714841055621" duration="3827000" />
+      <workItem from="1714997191378" duration="6145000" />
     </task>
     <servers />
   </component>
