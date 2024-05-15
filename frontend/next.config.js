@@ -5,6 +5,8 @@ const nextConfig = {
       "img.freepik.com",
       "prod.flowcvassets.com",
       "localhost",
+      "interviewsimulator.org",
+      "www.interviewsimulator.org",
       "api.genieaibuilder.com",
       "firebasestorage.googleapis.com",
       "www.google.com",
