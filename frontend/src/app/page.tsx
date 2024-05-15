@@ -9,11 +9,9 @@ import DemoComponent from "@/component/home/demo.component";
 import FooterComponent from "@/component/shared/footer.component";
 import { ConnectComponent } from "@/component/shared/ConnectComponent";
 import React from "react";
-import NoteComponent from "@/component/note/note.component";
 export default function Home() {
   return (
     <section className="w-full overflow-hidden">
-      {/*<LampsContainer />*/}
       <HeadComponent state="home" />
       <HeroComponent />
       <ConnectComponent />
