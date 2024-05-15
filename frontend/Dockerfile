@@ -1,5 +1,5 @@
 # Use Node.js 14 as the base image
-FROM node:14 AS builder
+FROM node:20 AS builder
 
 # Add author label
 LABEL authors="tekporlipos"
@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight Node.js image as the base image for the production environment
-FROM node:14-alpine
+FROM node:20-alpine
 
 # Set the working directory in the container
 WORKDIR /app
