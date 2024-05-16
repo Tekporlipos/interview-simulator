@@ -20,11 +20,11 @@ cache.init_app(app)
 
 
 # Add a list of allowed origins for CORS
-allowed_origins = [origin.strip() for origin in os.environ.get('CORS_ORIGIN').split(',')]
-CORS(app, resources={r'/api/v1/*': {"origins": allowed_origins}}, support_credentials=True)
+# allowed_origins = [origin.strip() for origin in os.environ.get('CORS_ORIGIN').split(',')]
+CORS(app)
 
 # Create a SocketIO instance with CORS support
-socketio = SocketIO(app, cors_allowed_origins=allowed_origins)
+socketio = SocketIO(app)
 
 # Configure Flask-Mail
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_HOST')
