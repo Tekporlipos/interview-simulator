@@ -9,14 +9,14 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=default
       - POSTGRES_DB=test
-#  flask-app:
-#    build: backend
-#    ports:
-#     - "5000:5000"
-#    env_file:
-#      - backend/.env
-#    depends_on:
-#      - postgres
+  flask-app:
+    build: backend
+    ports:
+     - "5000:5000"
+    env_file:
+      - backend/.env
+    depends_on:
+      - postgres
 #  next-app:
 #    build: frontend
 #    ports:
