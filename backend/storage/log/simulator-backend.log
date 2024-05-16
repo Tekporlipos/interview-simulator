@@ -1,0 +1,1 @@
+2024-05-16 17:49:57,203 [ERROR] 503 DNS resolution failed for texttospeech.googleapis.com:443: C-ares status is not ARES_SUCCESS qtype=SRV name=_grpclb._tcp.texttospeech.googleapis.com: Timeout while contacting DNS servers 500
